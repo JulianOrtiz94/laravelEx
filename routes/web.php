@@ -13,4 +13,3 @@
 
 Route::get('/', 'PagesController@home'); // 'PagesController llama a dicho controlador y @home llama a dicho metodo 
 
-Route::get('/about', 'PagesController@about');

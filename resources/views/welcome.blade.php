@@ -1,24 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="title m-b-md">
-        Laratter
+    <div class="jumbotron text-center">
+        <h1>Laratter</h1>
+        <nav>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+            </ul>
+        </nav>
     </div>
-
-        @if(isset($teacher))
-        <p>Profesor: {{ $teacher }}</p>
-        @else
-        <p>Profesor sin asignar </p>
-        @endif
-
-    <div class="links">
-        @foreach ($links as $link => $text)
-        <a href="{{ $link }}">{{ $text }}</a>
-        {{--  <a href="https://laravel.com/docs">Documentation</a>
-        <a href="https://laracasts.com">Laracasts</a>
-        <a href="https://laravel-news.com">News</a>
-        <a href="https://forge.laravel.com">Forge</a>
-        <a href="https://github.com/laravel/laravel">GitHub</a>  --}}
-        @endforeach
-    </div>    
+    <div class="row">
+        @forelse ( $messages as $message)
+            <div class="col-6">
+                <img src="{{ $message['image'] }}" alt="" class="img-thumbnail">
+                <p class="card-text">
+                    {{ $message['content']}}
+                    <a href="/messages/{{$message['id']}}">Leer más</a>
+                </p>
+            </div>
+        @empty
+            <p>No hay mensajes destacados</p>    
+        @endforelse
+    </div>
 @endsection
