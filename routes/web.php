@@ -12,7 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $links = [
+        'https://platzi.com/clases/curso-php-laravel/' => 'Curso Laravel',
+        'https://laravel.com/' => 'Laravel'
+    ];
+    
+    return view('welcome',[
+        'links' => $links
+    ]);
 });
 
 Route::get('/about', function () {
