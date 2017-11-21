@@ -11,17 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    $links = [
-        'https://platzi.com/clases/curso-php-laravel/' => 'Curso Laravel',
-        'https://laravel.com/' => 'Laravel'
-    ];
-    
-    return view('welcome',[
-        'links' => $links
-    ]);
-});
+Route::get('/', 'PagesController@home'); // 'PagesController llama a dicho controlador y @home llama a dicho metodo 
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about', 'PagesController@about');
